@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
+    render plain: "Successfully deleted"
   end
 
   private

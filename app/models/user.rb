@@ -10,4 +10,14 @@ class User < ActiveRecord::Base
     through: :artwork_shares,
     source: :artwork
 
+  has_many :artworks,
+    primary_key: :id,
+    foreign_key: :artist_id,
+    class_name: 'Artwork'
+
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :commenter_id,
+    class_name: 'Comment',
+    dependent: :destroy
 end
